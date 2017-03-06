@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tarea 7</title>
+    <title>Calle 1</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -13,16 +13,27 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
   </head>
-  <body>
 
-    <span class="btn btn-info" onclick="setStreet(1)">Calle A </span>
-    <span class="btn btn-info" onclick="setStreet(2)">Calle B </span>
+  <body >
 
-    <a href="admin.php" onclick="p()"><h4>Admin</h4></a>
+    <h3 class="text-success">Semafaro Calle 1</h3>
+    <div class="" id="streetA">
+
+      <canvas id="canvas_StreetA" width="300" height="300"></canvas>
+    </div>
 
     <script src="js/control.js" charset="utf-8"></script>
 
+    <script type="text/javascript">
+
+        setStreet(1);
+        
+        var time = '<?php echo intval( file_get_contents("time.txt")); ?>';
+        Run(time);
+
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>

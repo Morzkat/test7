@@ -1,0 +1,4 @@
+create database tarea7
+use tarea7
+
+create table users (id int auto-increment primary key, user varchar 30 not null, pass varchar 30 not null);
