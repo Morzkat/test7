@@ -22,7 +22,11 @@ if ($_POST)
   echo '    <h4>Tiempo</h4>
 
       <input type="number" id ="time" name="" value="">
+<<<<<<< HEAD
       <button type="button" onclick="setTime()" id ="time" name="button">Cambiar tiempo</button> </div></div>';
+=======
+      <button type="button" onclick="setTime()" id ="time" name="button">Cambiar tiempo</button>';
+>>>>>>> origin/master
 }
 
   else
@@ -73,11 +77,16 @@ if ($_POST)
 
       <h3>Semafaro</h3>
 
+<<<<<<< HEAD
       <a href="street1.php"><h4>Calle A</h4></a>
       <a href="street2.php"><h4>Calle B</h4></a>
 
         </div>
     </div>
+=======
+    <a href="street1.php"><h4>Calle A</h4></a>
+    <a href="street2.php"><h4>Calle B</h4></a>
+>>>>>>> origin/master
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/control.js" charset="utf-8"></script>

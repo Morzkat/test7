@@ -26,6 +26,7 @@
 
   <body>
 
+<<<<<<< HEAD
     <span class="btn btn-info" onclick="goTO('1')">Calle A </span><br></p>
     <span class="btn btn-info" onclick="goTO('2')">Calle B </span><br></p>
 
@@ -33,6 +34,15 @@
 
     <script src="js/control.js" charset="utf-8"></script>
 
+=======
+    <span class="btn btn-info" onclick="setStreet(1)">Calle A </span>
+    <span class="btn btn-info" onclick="setStreet(2)">Calle B </span>
+
+    <a href="admin.php" onclick="p()"><h4>Admin</h4></a>
+
+    <script src="js/control.js" charset="utf-8"></script>
+
+>>>>>>> origin/master
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>

@@ -86,16 +86,25 @@ function changeColor()
     }
 
   }
+<<<<<<< HEAD
 
 function setTime()
 {
   var set_Time = $("#time").val();
 
+=======
+
+function setTime()
+{
+  var set_Time = $("#time").val();
+
+>>>>>>> origin/master
   if (isNaN(set_Time))
   {
   window.alert("numero invalido");
   $("#time").val(" ");
   }
+<<<<<<< HEAD
 
   else
   {
@@ -110,4 +119,15 @@ function setTime()
 function goTO(street)
 {
     window.location = "street" + street + ".php";
+=======
+
+  else
+  {
+      $.post('setTime.php', {new_Time: set_Time}, function()
+        {
+          window.alert("El tiempo es " + set_Time + " segundos ahora");
+        });
+  }
+
+>>>>>>> origin/master
 }

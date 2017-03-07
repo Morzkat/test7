@@ -14,6 +14,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<<<<<<< HEAD
     <style media="screen">
       body
       {
@@ -22,6 +23,8 @@
         background-size: 100%;
       }
     </style>
+=======
+>>>>>>> origin/master
   </head>
 
   <body >
@@ -32,6 +35,7 @@
       <canvas id="canvas_StreetA" width="300" height="300"></canvas>
     </div>
 
+<<<<<<< HEAD
     <div>
 
       <span class="btn btn-info" onclick="goTO('2')">Calle B </span>
@@ -39,11 +43,14 @@
       <a href="admin.php"><h4>Admin</h4></a>
     </div>
 
+=======
+>>>>>>> origin/master
     <script src="js/control.js" charset="utf-8"></script>
 
     <script type="text/javascript">
 
         setStreet(1);
+<<<<<<< HEAD
         <?php
 
           if (file_exists("time.txt"))
@@ -58,6 +65,10 @@
 
         ?>
         var time = '<?php echo $time  ?>';
+=======
+        
+        var time = '<?php echo intval( file_get_contents("time.txt")); ?>';
+>>>>>>> origin/master
         Run(time);
 
     </script>
