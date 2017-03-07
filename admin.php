@@ -12,21 +12,23 @@ if ($_POST)
   $pass =$_POST['pass'];
 
   $sql = "SELECT * FROM users WHERE user = '$user' AND pass='$pass' LIMIT 1";
+   $result  = $conn->query($sql);
 
-
-    if (  $conn->query($sql))
+    if ($result->num_rows > 0 )
 {
-  echo "<h3>Hola ".$user."</h3>";
+  echo ' <div class="row">
+        <div class="col-md-2 col-md-offset-5"><h3>Hola '.$user.'</h3>';
 
   echo '    <h4>Tiempo</h4>
+
       <input type="number" id ="time" name="" value="">
-      <button type="button" onclick="setTime()" name="button">Cambiar tiempo</button>';
+      <button type="button" onclick="setTime()" id ="time" name="button">Cambiar tiempo</button> </div></div>';
 }
 
-else
-{
-  echo "<h3> Datos incorrectos intente de nuevo </h3>";
-}
+  else
+    {
+      echo "<h3> Datos incorrectos intente de nuevo </h3>";
+    }
 }
 
 ?>
@@ -37,28 +39,45 @@ else
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <title>Tarea 7</title>
+
+    <style media="screen">
+      body
+      {
+        background-image: url("img/1.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+    </style>
 
   </head>
   <body>
 
-    <h2>login</h2>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
 
-    <form class="" action="admin.php" method="post">
+      <h2>login</h2>
 
-      <h3>Usuario</h3>
-      <input type="text" name="user" value="">
+      <form class="text-info" action="admin.php" method="post">
 
-      <h3>Contraseña</h3>
-      <input type="text" name="pass" value=""></p>
+        <h3  class="text-warning">Usuario</h3>
+        <input type="text" name="user" value="">
 
-      <input type="submit" name="" value="Iniciar Sesion">
+        <h3  class="text-warning">Contraseña</h3>
+        <input type="password" name="pass" value=""></p>
 
-    </form>
+        <input type="submit" name="" value="Iniciar Sesion">
 
-    <h3>Semafaro</h3>
+      <h3>Semafaro</h3>
 
-    <a href="streets.php"><h4>Semaforo</h4></a>
+      <a href="street1.php"><h4>Calle A</h4></a>
+      <a href="street2.php"><h4>Calle B</h4></a>
+
+        </div>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/control.js" charset="utf-8"></script>
@@ -66,4 +85,5 @@ else
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
+
 </html>

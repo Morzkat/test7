@@ -1,27 +1,8 @@
-var color = 1;
-var street;
+
+var streetA = __("canvas_StreetA");
+var streetB = __("canvas_StreetB");
 
 var time;
-
-
-function setStreet(gotStreet)
-{
-    street = gotStreet;
-    console.log(gotStreet);
-
-    setTime();
-}
-
-function setTime()
-{
-
-  time = __("time").value * 1000;
-
-  var data = JSON.stringify(time);
-
-  localStorage.setItem("Time", data);
-
-}
 
 function __(id)
 {
@@ -29,74 +10,104 @@ function __(id)
     return id;
 }
 
-function Run()
+function Run(timePHP)
 {
-     time = localStorage.getItem("Time");
+  time = timePHP * 1000;
 
     if (time > 0)
     {
-      var timer = setInterval(paint, time);
+
+      setInterval(changeColor, time);
       console.log("user");
     }
 
     else
     {
 
-        var timer = setInterval(paint, 1000);
+        setInterval(changeColor, 4000);
         console.log("system");
     }
 }
 
-  function changeColor(canvas, color)
+function setStreet(n)
+{
+    data = JSON.stringify(n);
+    localStorage.setItem("street", data);
+}
+
+  function setColor(canvas, color)
   {
     var ctx = canvas.getContext("2d");
 
     ctx.beginPath();
-    ctx.arc(200,125,85,0,2*Math.PI);
+    ctx.arc(200,125,85,0,2 * Math.PI);
     ctx.fillStyle = color;
     ctx.fill();
 
     ctx.stroke();
   }
 
-function paint()
+function changeColor()
 {
-  var streetA = __("streetA");
-  var streetB = __("streetB");
 
-    if (color === 1)
+    var street = localStorage.getItem("street");
+
+    if (street === "1")
     {
-      var ctx = streetA.getContext("2d");
+      $.ajax(
+        {
+        url: 'setColor.php',
+        type: 'POST',
+        data: {street: street}
+        })
+      .done(function(color)
+      {
+        setColor(streetA, color);
+        console.log(color);
+      });
 
-      changeColor(streetA, "green");
-      changeColor(streetB, "red");
-      //calle B color rojo
-
-      color++;
     }
 
-    else if (color === 2)
+    else if (street === "2")
     {
+      $.ajax(
+        {
+        url: 'setColor.php',
+        type: 'POST',
+        data: {street: street}
+        })
+      .done(function(color)
+      {
+        setColor(streetB, color);
+        console.log(color);
+      });
 
-      changeColor(streetA, "yellow");
-      changeColor(streetB, "yellow");
-      //calle B color amarillo
 
-      color++;
     }
 
-    else if (color === 3)
-    {
+  }
 
-      changeColor(streetA, "red");
-      changeColor(streetB, "green");
+function setTime()
+{
+  var set_Time = $("#time").val();
 
-      color = 1;
-      //calle B color verde
-    }
+  if (isNaN(set_Time))
+  {
+  window.alert("numero invalido");
+  $("#time").val(" ");
+  }
+
+  else
+  {
+      $.post('setTime.php', {new_Time: set_Time}, function()
+        {
+          window.alert("El tiempo es " + set_Time + " segundos ahora");
+        });
+  }
+
 }
 
-function p()
+function goTO(street)
 {
-    console.log(55);
+    window.location = "street" + street + ".php";
 }
